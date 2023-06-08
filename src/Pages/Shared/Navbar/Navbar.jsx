@@ -1,31 +1,29 @@
 import React, { useContext } from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 
-
 const Navbar = () => {
-  const {user, logOut}= useContext(AuthContext)
-  const handleLogOut=()=>{
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
     logOut()
-    .then(()=>{})
-    .catch(error => console.log(error));
-
-  }
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
   const navOptions = (
     <>
       <li>
         <Link to="/">Home</Link>
-      
       </li>
 
       <li>
         <Link to="/instructors">Instructors</Link>
       </li>
       <li>
-       <Link to= "/classes">Classes</Link>
+        <Link to="/classes">Classes</Link>
       </li>
-
-
+      <li>
+        <Link to="/dashboard">Dashboard</Link>
+      </li>
     </>
   );
   return (
@@ -59,21 +57,37 @@ const Navbar = () => {
           <a className=" normal-case text-xl">Music Hunt</a>
         </div>
         <div className="navbar-center hidden lg:flex ">
-          <ul className="menu menu-horizontal px-1 ">
-            {navOptions}
-          </ul>
+          <ul className="menu menu-horizontal px-1 ">{navOptions}</ul>
         </div>
         <div className="navbar-end pr-3">
-          
-          {
-            user? <>
-            <button onClick={handleLogOut}><Link className="btn btn-primary text-white font-semibold font-popins" >Logout</Link></button>
-            </> : <>
-            <button><Link className="btn btn-primary text-white font-semibold font-popins" to="/login">Login</Link> </button>
-             
-           
+          {user ? (
+            <>
+              
+              
+              <div className="avatar online">
+                <div className="w-[50px] h-[45px] rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 mr-3">
+                <img src={user?.photoURL} alt="" />
+                  
+                </div>
+              </div>
+              <button onClick={handleLogOut}>
+                <Link className="btn btn-primary text-white font-semibold font-popins">
+                  Logout
+                </Link>
+              </button>
             </>
-          }
+          ) : (
+            <>
+              <button>
+                <Link
+                  className="btn btn-primary text-white font-semibold font-popins"
+                  to="/login"
+                >
+                  Login
+                </Link>{" "}
+              </button>
+            </>
+          )}
         </div>
       </div>
     </>

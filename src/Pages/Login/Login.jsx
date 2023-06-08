@@ -1,12 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import loginImg from "../../assets/login.jpg";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
+import { FaEye, FaGoogle } from "react-icons/fa";
 
 const Login = () => {
+  const [show,setShow]= useState(false);
+
   const { signIn } = useContext(AuthContext);
+  const navigate =useNavigate();
+  const location = useLocation();
+
+  const from =location.state?.from?.pathname || "/";
 
   const handleToLogin = (event) => {
     event.preventDefault();
@@ -24,6 +31,8 @@ const Login = () => {
         showConfirmButton: false,
         timer: 1500
       })
+
+      navigate (from, {replace:true});
     });
   };
   return (
@@ -56,23 +65,30 @@ const Login = () => {
                   required
                 />
               </div>
-              <div className="form-control">
+              <div className="form-control relative">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="password"
+                  type={show?"text" : "password"}
                   placeholder="password"
                   name="password"
                   className="input input-bordered"
                   required
                 />
+                <FaEye onClick={()=>setShow(!show)} className="absolute top-14 right-4 "></FaEye>
               </div>
               <div className="form-control mt-6">
                 <button className="btn btn-primary text-white font-semibold font-popins">Login</button>
               </div>
 
               <div className="divider">OR</div>
+              <div className="form-control">
+                <button className="btn btn-primary text-white font-popins ">
+                  {" "}
+                  <FaGoogle></FaGoogle> Google{" "}
+                </button>
+              </div>
 
               <p className="font-popins font-bold">
                 New in Music Hunt??{" "}

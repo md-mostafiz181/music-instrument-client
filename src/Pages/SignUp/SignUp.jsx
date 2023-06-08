@@ -1,19 +1,21 @@
 import React, { useContext } from "react";
 import signUpImg from "../../assets/login.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../Providers/AuthProvider";
-import { Result } from "postcss";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const {createUser}=useContext(AuthContext)
+  const {createUser,updateUserProfile}=useContext(AuthContext);
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
     console.log(data);
@@ -21,6 +23,24 @@ const SignUp = () => {
     .then(result=>{
       const loggedUser =result.user;
       console.log(loggedUser)
+      updateUserProfile(data.name, data.photo)
+      .then(()=>{
+        console.log("user profile updated.")
+        reset();
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'User Profile Update successfully...',
+          showConfirmButton: false,
+          timer: 1500
+        });
+
+        navigate('/')
+
+
+
+      })
+      .catch(error=>console.log(error))
     })
   };
 
@@ -158,7 +178,7 @@ const SignUp = () => {
                 </button>
               </div>
               <p className="font-popins font-bold">
-                Already Have an account?{" "}
+                Already Have An Account?{" "}
                 <Link to="/login" className="text-blue-800 underline">
                   Login
                 </Link>
