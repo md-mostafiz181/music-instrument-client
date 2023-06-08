@@ -8,6 +8,8 @@ import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import Dashboard from "../Pages/Shared/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
+import Classes from "../Pages/Classes/Classes";
+import Instructors from "../Pages/Instructors/Instructors";
 
 
 export const router = createBrowserRouter([
@@ -31,6 +33,16 @@ export const router = createBrowserRouter([
         {
           path:'dashboard',
           element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+        },
+        {
+          path:"instructors",
+          element:<Instructors></Instructors>,
+          loader:()=>fetch('http://localhost:5000/instructors'),
+          
+        },
+        {
+          path:"classes",
+          element:<Classes></Classes>
         }
       ]
     },
