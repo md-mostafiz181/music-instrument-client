@@ -6,11 +6,11 @@ import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
-import PrivateRoute from "./PrivateRoute";
 import Classes from "../Pages/Classes/Classes";
 import Instructors from "../Pages/Instructors/Instructors";
-import MyCart from "../Pages/Dashboard/MyCart/MyCart";
 import Dashboard from "../Layout/Dashboard";
+import ManageUsers from "../Pages/Dashboard/ManageUsers";
+// import ManageUsers from "../Pages/Dashboard/ManageUsers";
 
 
 export const router = createBrowserRouter([
@@ -49,8 +49,8 @@ export const router = createBrowserRouter([
       element:<Dashboard></Dashboard>,
       children:[
         {
-          path:"mycart",
-          element:<MyCart></MyCart>,
+          path:"menageUsers",
+          element:<ManageUsers></ManageUsers>,
 
         }
         

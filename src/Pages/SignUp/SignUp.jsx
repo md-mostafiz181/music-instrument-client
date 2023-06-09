@@ -26,6 +26,27 @@ const SignUp = () => {
       updateUserProfile(data.name, data.photo)
       .then(()=>{
         console.log("user profile updated.")
+
+        const addUser = {
+          email: loggedUser.email,
+          name: loggedUser.displayName,
+          image: loggedUser.photoURL,
+         
+        };
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(addUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              // alert("User added successfully");
+            }
+          });
+
         reset();
         Swal.fire({
           position: 'center',
