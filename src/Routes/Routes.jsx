@@ -6,10 +6,11 @@ import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
-import Dashboard from "../Pages/Shared/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import Classes from "../Pages/Classes/Classes";
 import Instructors from "../Pages/Instructors/Instructors";
+import MyCart from "../Pages/Dashboard/MyCart/MyCart";
+import Dashboard from "../Layout/Dashboard";
 
 
 export const router = createBrowserRouter([
@@ -31,10 +32,6 @@ export const router = createBrowserRouter([
           element:<SignUp></SignUp>
         },
         {
-          path:'dashboard',
-          element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
-        },
-        {
           path:"instructors",
           element:<Instructors></Instructors>,
           loader:()=>fetch('http://localhost:5000/instructors'),
@@ -45,5 +42,18 @@ export const router = createBrowserRouter([
           element:<Classes></Classes>
         }
       ]
+      
     },
+    {
+      path:"dashboard",
+      element:<Dashboard></Dashboard>,
+      children:[
+        {
+          path:"mycart",
+          element:<MyCart></MyCart>,
+
+        }
+        
+      ]
+    }
   ]);
