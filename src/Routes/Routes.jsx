@@ -10,6 +10,7 @@ import Classes from "../Pages/Classes/Classes";
 import Instructors from "../Pages/Instructors/Instructors";
 import Dashboard from "../Layout/Dashboard";
 import ManageUsers from "../Pages/Dashboard/ManageUsers";
+import NotFound from "../Pages/NotFound/NotFound";
 // import ManageUsers from "../Pages/Dashboard/ManageUsers";
 
 
@@ -17,6 +18,7 @@ export const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
+      errorElement:<NotFound></NotFound>,
       children:[
         {
             path:"/",

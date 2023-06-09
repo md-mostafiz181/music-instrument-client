@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import logoImg from "../../../assets/logo.jpg"
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -12,23 +13,23 @@ const Navbar = () => {
   const navOptions = (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <Link className="uppercase font-xl font-bold text-blue-600 mr-1" to="/">Home</Link>
       </li>
 
       <li>
-        <Link to="/instructors">Instructors</Link>
+        <Link className="uppercase font-xl font-bold text-blue-600 mr-1"  to="/instructors">Instructors</Link>
       </li>
       <li>
-        <Link to="/classes">Classes</Link>
+        <Link className="uppercase font-xl font-bold text-blue-600 mr-1"  to="/classes">Classes</Link>
       </li>
       <li>
-        <Link to="/dashboard/menageUsers">Dashboard</Link>
+        <Link className="uppercase font-xl font-bold text-blue-600 mr-1"  to="/dashboard/menageUsers">Dashboard</Link>
       </li>
     </>
   );
   return (
     <>
-      <div className="navbar bg-base-200 ">
+      <div className="navbar bg-slate-200 ">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -54,7 +55,8 @@ const Navbar = () => {
               {navOptions}
             </ul>
           </div>
-          <a className=" normal-case text-xl">Music Hunt</a>
+          <img className="w-[40px] h-[40px]" src={logoImg} alt="" />
+          <a className=" normal-case text-2xl font-bold ml-2"> <span className="text-blue-400">Music</span>  <span className="text-blue-600"> Hunt</span></a>
         </div>
         <div className="navbar-center hidden lg:flex ">
           <ul className="menu menu-horizontal px-1 ">{navOptions}</ul>
