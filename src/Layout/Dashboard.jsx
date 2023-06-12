@@ -8,9 +8,9 @@ const Dashboard = () => {
   // const [isAdmin] = UseAdmin()
   // const [isInstructor] =UseInstructor()
 
-  const isAdmin=false;
+  const isAdmin=true;
 
-  const isInstructor=true;
+  const isInstructor=false;
   return (
     <div>
       <div className="drawer lg:drawer-open ">
@@ -31,7 +31,7 @@ const Dashboard = () => {
           {isAdmin ? (
             <>
               <li className="flex ">
-                <NavLink className="font-bold text-1xl uppercase font-popins " to="/dashboard/manageclasses"> Manage Classes</NavLink>
+                <NavLink className="font-bold text-1xl uppercase font-popins " to="/dashboard/manageClass"> Manage Classes</NavLink>
               </li>
               <li className="flex">
                 <NavLink  className="font-bold text-1xl uppercase font-popins "  to="/dashboard/manageusers">Manage Users</NavLink>

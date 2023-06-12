@@ -3,13 +3,14 @@ import { useContext } from 'react';
 import { AuthContext } from '../../../Providers/AuthProvider';
 import UseAxiosSecure from '../../../Hooks/UseAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
+import { Link } from 'react-router-dom';
 
 const MyClass = () => {
 
     const { user } = useContext(AuthContext);
     const [axiosSecure] = UseAxiosSecure();
     const { data: MyClasses = [] } = useQuery(['MyClasses'], async () => {
-        const res = await axiosSecure.get(`/email?email=${user?.email}`)
+        const res = await axiosSecure.get(`/myClass?email=${user?.email}`)
         return res.data;
     })
     return (
@@ -62,7 +63,7 @@ const MyClass = () => {
                             <td>{cls.status}</td>
                             <td>{cls.feedback}</td>
                             <td className="text-center">{cls.totalStudent}</td>
-                            <td><Link to={`/dashboard/updatedclass/${cls._id}`}><button>update now</button></Link></td>
+                            <td><button>update now</button></td>
                         </tr >)
                     }
                 </tbody >

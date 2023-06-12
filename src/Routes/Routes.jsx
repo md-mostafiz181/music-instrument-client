@@ -13,6 +13,7 @@ import ManageUsers from "../Pages/Dashboard/ManageUsers";
 import NotFound from "../Pages/NotFound/NotFound";
 import AddAClass from "../Pages/Dashboard/Instructor/AddAClass";
 import MyClass from "../Pages/Dashboard/Instructor/MyClass";
+import ManageClasses from "../Pages/Dashboard/Admin/ManageClasses";
 
 
 
@@ -66,6 +67,10 @@ export const router = createBrowserRouter([
         {
           path:"myClass",
           element:<MyClass></MyClass>
+        },
+        {
+          path:"manageClass",
+          element:<ManageClasses></ManageClasses>,
         }
 
         
