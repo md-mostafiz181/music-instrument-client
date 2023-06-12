@@ -5,8 +5,12 @@ import UseInstructor from "../Hooks/UseInstructors";
 
 
 const Dashboard = () => {
-  const [isAdmin] = UseAdmin()
-  const [isInstructor] =UseInstructor()
+  // const [isAdmin] = UseAdmin()
+  // const [isInstructor] =UseInstructor()
+
+  const isAdmin=false;
+
+  const isInstructor=true;
   return (
     <div>
       <div className="drawer lg:drawer-open ">
@@ -36,10 +40,10 @@ const Dashboard = () => {
           ) : isInstructor ? (
             <>
               <li>
-                <NavLink  className="font-bold text-1xl uppercase font-popins " to="/dashboard/addclass">Add a Class</NavLink>
+                <NavLink  className="font-bold text-1xl uppercase font-popins " to="/dashboard/addaClass">Add a Class</NavLink>
               </li>
               <li>
-                <NavLink  className="font-bold text-1xl uppercase font-popins " to="/dashboard/instructorhome">My Classes</NavLink>
+                <NavLink  className="font-bold text-1xl uppercase font-popins " to="/dashboard/myClass">My Classes</NavLink>
               </li>
             </>
           ) : (

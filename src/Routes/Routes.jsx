@@ -11,7 +11,11 @@ import Instructors from "../Pages/Instructors/Instructors";
 import Dashboard from "../Layout/Dashboard";
 import ManageUsers from "../Pages/Dashboard/ManageUsers";
 import NotFound from "../Pages/NotFound/NotFound";
-// import ManageUsers from "../Pages/Dashboard/ManageUsers";
+import AddAClass from "../Pages/Dashboard/Instructor/AddAClass";
+import MyClass from "../Pages/Dashboard/Instructor/MyClass";
+
+
+
 
 
 export const router = createBrowserRouter([
@@ -36,7 +40,7 @@ export const router = createBrowserRouter([
         {
           path:"instructors",
           element:<Instructors></Instructors>,
-          loader:()=>fetch('http://localhost:5000/instructors'),
+          
           
         },
         {
@@ -54,7 +58,16 @@ export const router = createBrowserRouter([
           path:"menageUsers",
           element:<ManageUsers></ManageUsers>,
 
+        },
+        {
+          path:'addaClass',
+          element:<AddAClass></AddAClass>,
+        },
+        {
+          path:"myClass",
+          element:<MyClass></MyClass>
         }
+
         
       ]
     }
