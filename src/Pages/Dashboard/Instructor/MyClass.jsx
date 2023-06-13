@@ -63,7 +63,7 @@ const MyClass = () => {
                             <td>{cls.status}</td>
                             <td>{cls.feedback}</td>
                             <td className="text-center">{cls.totalStudent}</td>
-                            <td><button className='btn btn-primary text-white'>update now</button></td>
+                            <td><button  className='btn btn-primary text-white'>update now</button></td>
                         </tr >)
                     }
                 </tbody >

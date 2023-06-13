@@ -90,7 +90,7 @@ const ManageClasses = () => {
                                 <td>{cls.seats}</td>
                                 <td>{cls.price}</td>
                                 <th className='flex items-center gap-3'>
-                                    <button onClick={()=> handleApprovedClass (cls._id)}  className="btn  btn-success">Approve</button>
+                                    <button onClick={()=> handleApprovedClass (cls._id)}  className="btn  btn-primary text-white">Approve</button>
 
 
 

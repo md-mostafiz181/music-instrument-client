@@ -18,6 +18,7 @@ import InstructorRoute from "./InstructorRoute";
 import AdminRoute from "./AdminRoute";
 import MyEnrolledClasses from "../Pages/Dashboard/Student/MyEnrolledClasses";
 import MySelectedClass from "../Pages/Dashboard/Student/MySelectedClass";
+import UpdateClass from "../Pages/UpdateClass/UpdateClass";
 
 
 
@@ -83,6 +84,10 @@ export const router = createBrowserRouter([
         {
           path:"selectedClass",
           element:<MySelectedClass></MySelectedClass>
+        },
+        {
+          path:"updateClass",
+          element:<UpdateClass></UpdateClass>
         }
 
         

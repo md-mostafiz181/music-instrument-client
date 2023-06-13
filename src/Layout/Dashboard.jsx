@@ -1,8 +1,9 @@
 import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import UseAdmin from "../Hooks/UseAdmin";
 import UseInstructor from "../Hooks/UseInstructors";
 import { FaAddressCard, FaAngellist, FaCalendarCheck, FaMendeley, FaSafari, FaUserCircle } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -15,6 +16,9 @@ const Dashboard = () => {
   console.log(isAdmin,isInstructor)
   return (
     <div>
+      <Helmet>
+        <title>Music || Dashboard</title>
+      </Helmet>
       <div className="drawer lg:drawer-open bg-slate-400 ">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center ">
@@ -58,6 +62,10 @@ const Dashboard = () => {
               </li>
             </>
           )}
+
+          <Link to="/"><button className="btn btn-primary mt-5">Back Home</button></Link>
+
+
         </div>
       </div>
     </div>
