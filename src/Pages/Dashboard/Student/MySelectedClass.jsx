@@ -20,8 +20,8 @@ const MySelectedClass = () => {
     <div className="overflow-x-auto w-full">
     <table className="table">
         {/* head */}
-        <thead>
-            <tr>
+        <thead >
+            <tr className="bg-slate-200">
                 <th>
                     <label>
                         #

@@ -31,9 +31,9 @@ const ShowClass = ({ approvedCls }) => {
                     // setIsClassSelected(true)
                     // refetch();
                     Swal.fire({
-                        position: 'top-end',
+                        position: 'center',
                         icon: 'success',
-                        title: 'Class Add On The Selected Class',
+                        title: 'selected class added',
                         showConfirmButton: false,
                         timer: 1500
                     })

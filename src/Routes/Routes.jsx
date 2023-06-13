@@ -18,7 +18,9 @@ import InstructorRoute from "./InstructorRoute";
 import AdminRoute from "./AdminRoute";
 import MyEnrolledClasses from "../Pages/Dashboard/Student/MyEnrolledClasses";
 import MySelectedClass from "../Pages/Dashboard/Student/MySelectedClass";
-import UpdateClass from "../Pages/UpdateClass/UpdateClass";
+import News from "../Pages/News/News";
+import History from "../Pages/History/History";
+
 
 
 
@@ -52,6 +54,14 @@ export const router = createBrowserRouter([
         {
           path:"classes",
           element:<Classes></Classes>
+        },
+        {
+          path:"news",
+          element:<News></News>
+        },
+        {
+          path:"history",
+          element:<History></History>
         }
       ]
       
@@ -85,10 +95,7 @@ export const router = createBrowserRouter([
           path:"selectedClass",
           element:<MySelectedClass></MySelectedClass>
         },
-        {
-          path:"updateClass",
-          element:<UpdateClass></UpdateClass>
-        }
+
 
         
       ]
