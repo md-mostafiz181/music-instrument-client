@@ -25,11 +25,9 @@ const Gallery = () => {
             <img src={gal1} alt="Shoes" className="rounded-xl" />
           </figure>
           <div className="card-body items-center text-center">
-            <h2 className="card-title font-bold">Guitar</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions">
-              <button className="btn btn-primary">Buy Now</button>
-            </div>
+            <h2 className="card-title font-bold uppercase font-popin">Guitar</h2>
+            <p className="font-semibold font-popins">If you want to know about  wagered guitar as an expert. You must choice our academy.</p>
+      
           </div>
         </div>
 
@@ -38,11 +36,9 @@ const Gallery = () => {
             <img src={gal2} alt="Shoes" className="rounded-xl" />
           </figure>
           <div className="card-body items-center text-center">
-            <h2 className="card-title font-bold">Frech Flute</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions">
-              <button className="btn btn-primary">Buy Now</button>
-            </div>
+            <h2 className="card-title font-bold uppercase">Frech Flute</h2>
+            <p className="font-semibold font-popins">If you want to know about  wagered french flute as an expert. You must choice our academy.</p>
+    
           </div>
         </div>
 
@@ -51,11 +47,9 @@ const Gallery = () => {
             <img src={gal3} alt="Shoes" className="rounded-xl" />
           </figure>
           <div className="card-body items-center text-center">
-            <h2 className="card-title font-bold">Dram</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions">
-              <button className="btn btn-primary">Buy Now</button>
-            </div>
+            <h2 className="card-title font-bold uppercase" >Dram</h2>
+            <p className="font-semibold font-popins">If you want to know about  wagered dram as an expert. You must choice our academy.</p>
+    
           </div>
         </div>
 
@@ -64,11 +58,9 @@ const Gallery = () => {
             <img src={gal4} alt="Shoes" className="rounded-xl" />
           </figure>
           <div className="card-body items-center text-center">
-            <h2 className="card-title font-bold">Ukalale</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions">
-              <button className="btn btn-primary">Buy Now</button>
-            </div>
+            <h2 className="card-title font-bold uppercase">Ukalale</h2>
+            <p className="font-semibold font-popins">If you want to know about  wagered ukalale as an expert. You must choice our academy.</p>
+ 
           </div>
         </div>
 
@@ -77,11 +69,9 @@ const Gallery = () => {
             <img src={gal5} alt="Shoes" className="rounded-xl" />
           </figure>
           <div className="card-body items-center text-center">
-            <h2 className="card-title font-bold">Bujong</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions">
-              <button className="btn btn-primary">Buy Now</button>
-            </div>
+            <h2 className="card-title font-bold uppercase">Bujong</h2>
+            <p className="font-semibold font-popins">If you want to know about  wagered bujong as an expert. You must choice our academy.</p>
+
           </div>
         </div>
 
@@ -90,11 +80,9 @@ const Gallery = () => {
             <img src={gal6} alt="Shoes" className="rounded-xl" />
           </figure>
           <div className="card-body items-center text-center">
-            <h2 className="card-title font-bold">Piano</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions">
-              <button className="btn btn-primary">Buy Now</button>
-            </div>
+            <h2 className="card-title font-bold uppercase">Piano</h2>
+            <p className="font-semibold font-popins">If you want to know about  wagered piano as an expert. You must choice our academy.</p>
+
           </div>
         </div>
       </div>
