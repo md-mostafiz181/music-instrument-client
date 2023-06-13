@@ -4,13 +4,14 @@ import UseAdmin from "../Hooks/UseAdmin";
 import UseInstructor from "../Hooks/UseInstructors";
 
 
+
 const Dashboard = () => {
-  // const [isAdmin] = UseAdmin()
-  // const [isInstructor] =UseInstructor()
+  const [isAdmin]=UseAdmin();
+  const [isInstructor]=UseInstructor();
 
-  const isAdmin=true;
-
-  const isInstructor=false;
+  // const isAdmin=false;
+  // const isInstructor=true;
+  console.log(isAdmin,isInstructor)
   return (
     <div>
       <div className="drawer lg:drawer-open ">
@@ -28,16 +29,16 @@ const Dashboard = () => {
         <div className="drawer-side bg-slate-200 px-10">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
 
-          {isAdmin ? (
+          {isAdmin?.admin ? (
             <>
               <li className="flex ">
                 <NavLink className="font-bold text-1xl uppercase font-popins " to="/dashboard/manageClass"> Manage Classes</NavLink>
               </li>
               <li className="flex">
-                <NavLink  className="font-bold text-1xl uppercase font-popins "  to="/dashboard/manageusers">Manage Users</NavLink>
+                <NavLink  className="font-bold text-1xl uppercase font-popins "  to="/dashboard/menageUsers">Manage Users</NavLink>
               </li>
             </>
-          ) : isInstructor ? (
+          ) : isInstructor?.instructor ? (
             <>
               <li>
                 <NavLink  className="font-bold text-1xl uppercase font-popins " to="/dashboard/addaClass">Add a Class</NavLink>

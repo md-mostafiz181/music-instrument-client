@@ -21,12 +21,14 @@ const ManageClasses = () => {
         })
             .then(res => res.json())
             .then(data => {
+
+                console.log(data)
                 if (data.modifiedCount) {
                     refetch();
                     Swal.fire({
-                        position: 'top-end',
+                        position: 'center',
                         icon: 'success',
-                        title: 'ok',
+                        title: 'Your class is approved',
                         showConfirmButton: false,
                         timer: 1500
                     })
@@ -88,7 +90,7 @@ const ManageClasses = () => {
                                 <td>{cls.seats}</td>
                                 <td>{cls.price}</td>
                                 <th className='flex items-center gap-3'>
-                                    <button onClick={() => handleApprovedClass (cls._id)}  className="btn  btn-success">Approve</button>
+                                    <button onClick={()=> handleApprovedClass (cls._id)}  className="btn  btn-success">Approve</button>
 
 
 

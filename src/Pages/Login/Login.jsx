@@ -5,6 +5,8 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 import { FaEye, FaGoogle } from "react-icons/fa";
+import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import { app } from "../../firebase/firebase.config";
 
 const Login = () => {
   const [show,setShow]= useState(false);
@@ -12,8 +14,27 @@ const Login = () => {
   const { signIn } = useContext(AuthContext);
   const navigate =useNavigate();
   const location = useLocation();
-
   const from =location.state?.from?.pathname || "/";
+  
+
+
+  // google login
+
+  const auth=getAuth(app);
+  const provider= new GoogleAuthProvider();
+
+
+  const handleGoogleSignIn=()=>{
+    signInWithPopup(auth,provider)
+    .then(result=>{
+      const user=result.user;
+      console.log(user)
+    })
+    .catch(error=>{
+      console.log("error",error.message)
+    })
+  }
+
 
   const handleToLogin = (event) => {
     event.preventDefault();
@@ -84,7 +105,7 @@ const Login = () => {
 
               <div className="divider">OR</div>
               <div className="form-control">
-                <button className="btn btn-primary text-white font-popins ">
+                <button onClick={handleGoogleSignIn} className="btn btn-primary text-white font-popins ">
                   {" "}
                   <FaGoogle></FaGoogle> Google{" "}
                 </button>

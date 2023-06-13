@@ -6,14 +6,18 @@ import { AuthContext } from "../Providers/AuthProvider";
 
 const UseInstructor = () => {
   const [axiosSecure] = useAxiosSecure();
-  const { user } = useContext(AuthContext);
-  const { data: isInstructor = {}, isLoading } = useQuery(
-    ["isInstructor"],
-    async () => {
-      const res = await axiosSecure.get(`/users/instructor/${user?.email}`);
-      return res.data;
-    }
-  );
+  const { user,loading } = useContext(AuthContext);
+  // const { data: isInstructor = {}, isLoading } = useQuery(
+  //   ["isInstructor"],
+  //   async () => {
+  //     const res = await axiosSecure.get(`/users/instructor/${user?.email}`);
+  //     return res.data;
+  //   }
+  // );
+  const { data: isInstructor = {}, isLoading } = useQuery({queryKey:['isInstructor'],enabled:!loading,queryFn:async()=>{
+    const res = await axiosSecure.get(`/users/instructor/${user?.email}`);
+     return res.data;
+   }})
   return [isInstructor, isLoading];
 };
 

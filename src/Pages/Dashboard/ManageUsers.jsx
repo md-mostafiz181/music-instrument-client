@@ -1,24 +1,9 @@
 
-import { useQuery } from "@tanstack/react-query";
-import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import Swal from "sweetalert2";
+import useUser from "../../Hooks/useUser";
 
 const ManageUsers = () => {
-  const [axiosSecure] = UseAxiosSecure();
-
-  const {
-    data: users = [],
-    refetch,
-    isLoading,
-    isError,
-  } = useQuery(["users"], async () => {
-    try {
-      const res = await axiosSecure.get("/users");
-      return res.data;
-    } catch (error) {
-      throw new Error("Failed to fetch users");
-    }
-  });
+  const [users,refetch,isLoading,isError]=useUser();
 
   const handleAdmin = (user) => {
     fetch(`http://localhost:5000/users/admin/${user._id}`, {
@@ -88,6 +73,7 @@ const ManageUsers = () => {
               <th>Name</th>
               <th>Email</th>
               <th>Role</th>
+              <th>Action</th>
          
             </tr>
           </thead>
@@ -97,6 +83,7 @@ const ManageUsers = () => {
                 <th>{index + 1}</th>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
+                <td>{user.role}</td>
                 <td className="font-semibold">
                   {user.role === "admin" ? (
                     "admin"

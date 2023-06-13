@@ -1,10 +1,16 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
-import logoImg from "../../../assets/logo.jpg"
+import logoImg from "../../../assets/logo.jpg";
+import useUser from "../../../Hooks/useUser";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+
+  const [users] = useUser();
+
+  const userRole = users.find((us) => us?.email === user?.email);
+
   const handleLogOut = () => {
     logOut()
       .then(() => {})
@@ -13,18 +19,60 @@ const Navbar = () => {
   const navOptions = (
     <>
       <li>
-        <Link className="uppercase font-xl font-bold text-blue-600 mr-1" to="/">Home</Link>
+        <Link className="uppercase font-xl font-bold text-blue-600 mr-1" to="/">
+          Home
+        </Link>
       </li>
 
       <li>
-        <Link className="uppercase font-xl font-bold text-blue-600 mr-1"  to="/instructors">Instructors</Link>
+        <Link
+          className="uppercase font-xl font-bold text-blue-600 mr-1"
+          to="/instructors"
+        >
+          Instructors
+        </Link>
       </li>
       <li>
-        <Link className="uppercase font-xl font-bold text-blue-600 mr-1"  to="/classes">Classes</Link>
+        <Link
+          className="uppercase font-xl font-bold text-blue-600 mr-1"
+          to="/classes"
+        >
+          Classes
+        </Link>
       </li>
-      <li>
-        <Link className="uppercase font-xl font-bold text-blue-600 mr-1"  to="/dashboard/menageUsers">Dashboard</Link>
-      </li>
+
+      {userRole?.role == "student" && (
+        <li>
+          <Link
+            className="uppercase font-xl font-bold text-blue-600 mr-1"
+            to="/dashboard/enrollClass"
+          >
+            Dashboard
+          </Link>
+        </li>
+      )}
+
+      {userRole?.role == "instructor" && (
+        <li>
+          <Link
+            className="uppercase font-xl font-bold text-blue-600 mr-1"
+            to="/dashboard/myClass"
+          >
+            Dashboard
+          </Link>
+        </li>
+      )}
+
+      {userRole?.role == "admin" && (
+        <li>
+          <Link
+            className="uppercase font-xl font-bold text-blue-600 mr-1"
+            to="/dashboard/menageUsers"
+          >
+            Dashboard
+          </Link>
+        </li>
+      )}
     </>
   );
   return (
@@ -56,7 +104,11 @@ const Navbar = () => {
             </ul>
           </div>
           <img className="w-[40px] h-[40px]" src={logoImg} alt="" />
-          <a className=" normal-case text-2xl font-bold ml-2"> <span className="text-blue-400">Music</span>  <span className="text-blue-600"> Hunt</span></a>
+          <a className=" normal-case text-2xl font-bold ml-2">
+            {" "}
+            <span className="text-blue-400">Music</span>{" "}
+            <span className="text-blue-600"> Hunt</span>
+          </a>
         </div>
         <div className="navbar-center hidden lg:flex ">
           <ul className="menu menu-horizontal px-1 ">{navOptions}</ul>
@@ -64,12 +116,9 @@ const Navbar = () => {
         <div className="navbar-end pr-3">
           {user ? (
             <>
-              
-              
               <div className="avatar online">
                 <div className="w-[50px] h-[45px] rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 mr-3">
-                <img src={user?.photoURL} alt="" />
-                  
+                  <img src={user?.photoURL} alt="" />
                 </div>
               </div>
               <button onClick={handleLogOut}>

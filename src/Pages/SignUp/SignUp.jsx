@@ -6,8 +6,23 @@ import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import { GoogleAuthProvider, getAuth } from "firebase/auth";
 
 const SignUp = () => {
+
+  const auth=getAuth();
+  const googleProvider= new GoogleAuthProvider();
+
+  const handleGoogleSingUn=()=>{
+    googleSignIn()
+    
+    .then(result =>{
+      const loggedUser=result.user;
+      console.log(loggedUser)
+    })
+    
+    
+  }
   const {
     register,
     reset,
@@ -31,6 +46,7 @@ const SignUp = () => {
           email: loggedUser.email,
           name: loggedUser.displayName,
           image: loggedUser.photoURL,
+          role:"student"
          
         };
         fetch("http://localhost:5000/users", {

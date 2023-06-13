@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import UseAxiosSecure from '../../../Hooks/UseAxiosSecure';
 import { AuthContext } from '../../../Providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const img_hosting_token = import.meta.env.VITE_IMG_BB_KEY;
 
@@ -36,7 +37,13 @@ const AddAClass = () => {
                         .then(data => {
                             reset();
                             if (data.data.insertedId) {
-                                alert('successfully add an Item')
+                                Swal.fire({
+                                    position: 'center',
+                                    icon: 'success',
+                                    title: 'class is added',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                  })
                             }
                         })
                 }
@@ -58,7 +65,7 @@ const AddAClass = () => {
                         <label className="label">
                             <span className="label-text">Instructor Name*</span>
                         </label>
-                        <input type="text" value={user?.displayName}
+                        <input type="text" value={user?.displayName} readOnly
                             {...register("instructorName", { required: true })}
                             className="input input-bordered w-full " />
                     </div>
@@ -66,7 +73,7 @@ const AddAClass = () => {
                         <label className="label">
                             <span className="label-text">Instructor Email*</span>
                         </label>
-                        <input type="text" value={user?.email}
+                        <input type="text" value={user?.email} readOnly
                             {...register("instructorEmail", { required: true })}
                             className="input input-bordered w-full " />
                     </div>
