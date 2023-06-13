@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import UseAdmin from "../Hooks/UseAdmin";
 import UseInstructor from "../Hooks/UseInstructors";
+import { FaAddressCard, FaAngellist, FaCalendarCheck, FaMendeley, FaSafari, FaUserCircle } from "react-icons/fa";
 
 
 
@@ -32,28 +33,28 @@ const Dashboard = () => {
           {isAdmin?.admin ? (
             <>
               <li className="flex ">
-                <NavLink className="font-bold text-1xl uppercase font-popins " to="/dashboard/manageClass"> Manage Classes</NavLink>
+                <NavLink className="mt-16 flex px-2 font-bold text-1xl uppercase font-popins " to="/dashboard/manageClass"> <FaMendeley className="mr-2 mt-1"></FaMendeley> Manage Classes</NavLink>
               </li>
               <li className="flex">
-                <NavLink  className="font-bold text-1xl uppercase font-popins "  to="/dashboard/menageUsers">Manage Users</NavLink>
+                <NavLink  className="mt-5 flex px-2 font-bold text-1xl uppercase font-popins "  to="/dashboard/menageUsers"> <FaCalendarCheck className="mr-2 mt-1"></FaCalendarCheck> Manage Users</NavLink>
               </li>
             </>
           ) : isInstructor?.instructor ? (
             <>
-              <li>
-                <NavLink  className="font-bold text-1xl uppercase font-popins " to="/dashboard/addaClass">Add a Class</NavLink>
+              <li className="flex ">
+                <NavLink  className=" mt-16 font-bold flex px-2 text-1xl uppercase font-popins " to="/dashboard/addaClass"> <FaUserCircle className="mr-2 mt-1"></FaUserCircle > Add a Class</NavLink>
               </li>
-              <li>
-                <NavLink  className="font-bold text-1xl uppercase font-popins " to="/dashboard/myClass">My Classes</NavLink>
+              <li className="flex ">
+                <NavLink  className=" mt-5 font-bold flex text-1xl uppercase font-popins " to="/dashboard/myClass"> <FaAddressCard className="mr-2 mt-1"></FaAddressCard> My Classes</NavLink>
               </li>
             </>
           ) : (
             <>
-              <li>
-                <NavLink  className="font-bold text-1xl uppercase font-popins ">My Selected Classes</NavLink>
+              <li className="flex ">
+                <NavLink  className=" mt-16 font-bold flex text-1xl uppercase font-popins "> <FaSafari className="mr-2 mt-1"></FaSafari> My Selected Classes</NavLink>
               </li>
-              <li>
-                <NavLink  className="font-bold text-1xl uppercase font-popins ">My Enrolled Classes</NavLink>
+              <li className="flex ">
+                <NavLink  className=" mt-5 font-bold flex text-1xl uppercase font-popins "> <FaAngellist className="mr-2 mt-1"></FaAngellist> My Enrolled Classes</NavLink>
               </li>
             </>
           )}

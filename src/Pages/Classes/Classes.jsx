@@ -11,8 +11,8 @@ const Classes = () => {
   });
   return (
     <div>
-      <div className="bg-black p-10 ">
-        <div className="mt-32 grid md:grid-cols-3 gap-8">
+      <div className="  ">
+        <div className="py-5 grid md:grid-cols-3 gap-8">
           {approvedClass.map((approvedCls) => (
             <ShowClass
               key={approvedCls._id}
