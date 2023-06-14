@@ -20,6 +20,7 @@ import MyEnrolledClasses from "../Pages/Dashboard/Student/MyEnrolledClasses";
 import MySelectedClass from "../Pages/Dashboard/Student/MySelectedClass";
 import News from "../Pages/News/News";
 import History from "../Pages/History/History";
+import Payment from "../Pages/Payment/Payment";
 
 
 
@@ -95,6 +96,10 @@ export const router = createBrowserRouter([
           path:"selectedClass",
           element:<MySelectedClass></MySelectedClass>
         },
+        {
+          path:"payment",
+          element:<Payment></Payment>
+        }
 
 
         

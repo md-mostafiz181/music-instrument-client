@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const MySelectedClass = () => {
   const [classes, setClasses] = useState([]);
@@ -12,7 +13,7 @@ const MySelectedClass = () => {
   }, []);
 
 //   const { classImage, className, email, instructorName, price, seats } = classes;
-  console.log(classes)
+//   console.log(classes)
 
 
   return (
@@ -63,7 +64,7 @@ const MySelectedClass = () => {
                     <td>{cls.email}</td>
                     <td>{cls.seats}</td>
                     <td>{cls.price}</td>
-                    <button className="btn btn-primary font-semibold text-white mr-2 mt-2">Pay</button>
+                  <Link to="/dashboard/payment">  <button className="btn btn-primary font-semibold text-white mr-2 mt-2">Pay</button></Link>
                     <button className="btn btn-error font-semibold   text-white ">Delete</button>
 
                 </tr >)

@@ -13,7 +13,7 @@ const Dashboard = () => {
 
   // const isAdmin=false;
   // const isInstructor=true;
-  console.log(isAdmin,isInstructor)
+  // console.log(isAdmin,isInstructor)
   return (
     <div>
       <Helmet>
