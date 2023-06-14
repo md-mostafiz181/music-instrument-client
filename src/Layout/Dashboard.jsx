@@ -58,7 +58,7 @@ const Dashboard = () => {
                 <NavLink to="/dashboard/selectedClass"  className=" mt-16 font-bold flex text-1xl uppercase font-popins "> <FaSafari className="mr-2 mt-1"></FaSafari> My Selected Classes</NavLink>
               </li>
               <li className="flex ">
-                <NavLink  className=" mt-5 font-bold flex text-1xl uppercase font-popins "> <FaAngellist className="mr-2 mt-1"></FaAngellist> My Enrolled Classes</NavLink>
+                <NavLink to="/dashboard/enrollClass"  className=" mt-5 font-bold flex text-1xl uppercase font-popins "> <FaAngellist className="mr-2 mt-1"></FaAngellist> My Enrolled Classes</NavLink>
               </li>
             </>
           )}

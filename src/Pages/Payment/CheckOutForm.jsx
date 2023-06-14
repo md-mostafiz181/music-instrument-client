@@ -17,7 +17,7 @@ const CheckOutForm = ({ singleClass}) => {
   const [transactionId, setTransactionId] = useState("");
 
   const price=singleClass?.price;
-  // console.log(singleClass)
+
 
   useEffect(() => {
     if (singleClass?.price > 0) {
@@ -26,9 +26,6 @@ const CheckOutForm = ({ singleClass}) => {
       });
     }
 
-        // axiosSecure.post("/create-payment-intent", { price }).then((res) => {
-        //   setClientSecret(res.data.clientSecret);
-        // });
 
   }, [price]);
 

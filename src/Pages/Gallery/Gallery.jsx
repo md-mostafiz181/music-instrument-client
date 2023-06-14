@@ -5,14 +5,17 @@ import gal3 from "../../assets/gal3.jpg";
 import gal4 from "../../assets/gal4.jpg";
 import gal5 from "../../assets/gal5.jpg";
 import gal6 from "../../assets/gal6.jpg";
+import { Fade } from "react-awesome-reveal";
 
 const Gallery = () => {
   return (
     <div>
       <div className="text-center">
-        <h1 className="text-4xl uppercase font-bold font-popins mt-5">
+
+        <Fade> <h1 className="text-4xl uppercase font-bold font-popins mt-5">
           Our Instrument
-        </h1>
+        </h1></Fade>
+ 
         <h3 className="text-xl font-semibold font-popin ">
           Its a bit of part of our instrument. We have lots of musical
           instrument.

@@ -21,6 +21,8 @@ import MySelectedClass from "../Pages/Dashboard/Student/MySelectedClass";
 import News from "../Pages/News/News";
 import History from "../Pages/History/History";
 import Payment from "../Pages/Payment/Payment";
+import PopularClass from "../Pages/PopularClass/PopularClass";
+import PopularInstructor from "../Pages/PopularInstructor/PopularInstructor";
 
 
 
@@ -63,6 +65,14 @@ export const router = createBrowserRouter([
         {
           path:"history",
           element:<History></History>
+        },
+        {
+          path:"popularClass",
+          element:<PopularClass></PopularClass>,
+        },
+        {
+          path:"popularInstructor",
+          element:<PopularInstructor></PopularInstructor>
         }
       ]
       
