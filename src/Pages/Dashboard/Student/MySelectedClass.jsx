@@ -1,20 +1,38 @@
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Providers/AuthProvider";
+import UseAxiosSecure from "../../../Hooks/UseAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 const MySelectedClass = () => {
-  const [classes, setClasses] = useState([]);
+    const {user,loading}=useContext(AuthContext)
+//   const [classes, setClasses] = useState([]);
 
-  useEffect(() => {
-    fetch("http://localhost:5000/selectedClass")
-      .then((res) => res.json())
-      .then((data) => setClasses(data));
-  }, []);
+//   useEffect(() => {
+//     fetch(`http://localhost:5000/selectedClass?email=${user?.email}`)
+//       .then((res) => res.json())
+//       .then((data) => setClasses(data));
+//   }, []);
 
 //   const { classImage, className, email, instructorName, price, seats } = classes;
 //   console.log(classes)
 
+
+
+
+const [axiosSecure]=UseAxiosSecure();
+const {data:selectedClass=[]}=useQuery({
+    queryKey:['selectedClass'],
+    enabled:!loading,
+    queryFn:async()=>{
+        const res=await axiosSecure.get(`/selectedClass?email=${user?.email}`);
+        return res.data;
+    
+
+    }
+})
+
+console.log(selectedClass)
 
   return (
 
@@ -38,7 +56,7 @@ const MySelectedClass = () => {
         </thead>
         <tbody>
             {
-                classes.map((cls, index) => <tr key={cls._id}>
+                selectedClass.map((cls, index) => <tr key={cls._id}>
                     <th>
                         <label>
                             {index + 1}
@@ -64,7 +82,7 @@ const MySelectedClass = () => {
                     <td>{cls.email}</td>
                     <td>{cls.seats}</td>
                     <td>{cls.price}</td>
-                  <Link to="/dashboard/payment">  <button className="btn btn-primary font-semibold text-white mr-2 mt-2">Pay</button></Link>
+                  <Link to={`/dashboard/payment/${cls._id}`}>  <button className="btn btn-primary font-semibold text-white mr-2 mt-2">Pay</button></Link>
                     <button className="btn btn-error font-semibold   text-white ">Delete</button>
 
                 </tr >)

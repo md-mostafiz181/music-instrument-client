@@ -5,6 +5,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import { useQuery } from '@tanstack/react-query';
 import UseAxiosSecure from '../../Hooks/UseAxiosSecure';
 import { AuthContext } from '../../Providers/AuthProvider';
+import { useParams } from 'react-router-dom';
 
 // TODO:provide publishable key
 
@@ -13,26 +14,48 @@ const stripePromise=loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 
 const Payment = () => {
 
-    const {user}=useContext(AuthContext)
+    const {user,loading}=useContext(AuthContext);
+    console.log(user)
+
+
+    const {id}=useParams()
 
 
     const [axiosSecure]=UseAxiosSecure();
-    const {data:selectedClass=[]}=useQuery(['selectedClass'], async()=>{
-        const res=await axiosSecure.get(`/selected?email=${user?.email}`);
-        return res.data;
+    const {data:selectedClass=[]}=useQuery({
+        queryKey:['selectedClass'],
+        enabled:!loading,
+        queryFn:async()=>{
+            const res=await axiosSecure.get(`/selectedClass?email=${user?.email}`);
+            return res.data;
+        
 
+        }
     })
 
-    const total = selectedClass.reduce((sum, cls) => sum + cls.price, 0);
-    const price = parseFloat(total.toString()).toFixed(2);
+    // useQuery(['selectedClass'], async()=>{
+    //    
+
+
+    // })
+
+    console.log(selectedClass)
+
+
+    const singleClasses=selectedClass.find(cls=>cls._id===id);
+    console.log(singleClasses)
+
+
+    // const total = selectedClass.reduce((sum, cls) => sum + cls.price, 0);
+    // const price = parseFloat(total.toString()).toFixed(2);
     return (
         <div className='w-full px-3 '>
             <h1 className='text-4xl text-center font-bold font-popins uppercase'>Payment Here</h1>
-            <h1 className='text-3xl'>Payment first..... </h1>
+            <h1 className='text-3xl font-bold font-popins'>Payment first..... </h1>
             <Elements stripe={stripePromise}>
                <CheckOutForm
-                    selectedClass={selectedClass}
-                    price={price}
+                    singleClass={singleClasses}
+                   
                ></CheckOutForm>
 
             </Elements>

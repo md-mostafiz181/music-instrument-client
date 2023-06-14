@@ -7,7 +7,7 @@ const ShowClass = ({ approvedCls }) => {
     const {user}=useContext(AuthContext)
   const { classImage, className, price, seats, totalStudent, instructorName,_id } =
     approvedCls;
-  console.log(approvedCls);
+  // console.log(approvedCls);
 
 
   const handleSelectClass = () => {
