@@ -16,7 +16,7 @@ const Classes = () => {
             <title>Music || Class</title>
         </Helmet>
       <div>
-        <div className="  ">
+        <div className="bg-slate-300">
           <div className="py-5 grid md:grid-cols-3 gap-8">
             {approvedClass.map((approvedCls) => (
               <ShowClass

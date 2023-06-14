@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Slide } from "react-awesome-reveal";
+import AOS from "aos"
+import 'aos/dist/aos.css'
 
 const PopularClass = () => {
   const [popular, setPopular] = useState([]);
+
+  useEffect(()=>{
+    
+  AOS.init();
+  },[])
 
   useEffect(() => {
     fetch("http://localhost:5000/popularClass")
@@ -14,7 +21,7 @@ const PopularClass = () => {
     <div className="py-10">
       <Slide>
         {" "}
-        <h2 className="text-center text-4xl font-bold font-popins uppercase">
+        <h2 className="text-center text-4xl font-bold font-popins uppercase text-blue-400">
           Our Popular Class
         </h2>
         <p className="font-xl font-semibold font-popins text-center mt-2 mb-3">
@@ -23,11 +30,11 @@ const PopularClass = () => {
         </p>
       </Slide>
 
-      <div className="grid md:grid-cols-3 sm:grid-cols-1 gap-5 ">
+      <div className="grid md:grid-cols-3 sm:grid-cols-1 gap-5 " data-aos="fade-up" >
         {popular.map((popular) => (
           <div className="card card-compact w-full bg-gray-300 shadow-xl">
             <figure>
-              <img src={popular.classImage} alt="" />
+              <img  src={popular.classImage} alt="" />
             </figure>
             <div className="card-body text-center">
               <h2 className="text-3xl uppercase font-bold ">

@@ -13,7 +13,7 @@ import { Fade } from "react-awesome-reveal";
 const News = () => {
   return (
     <div className="text-center py-5 ">
-      <Fade><h1 className="text-4xl font-bold font-popins">Latest News</h1></Fade>
+      <Fade><h1 className="text-4xl font-bold font-popins text-blue-400">Latest News</h1></Fade>
       <p className="text-xl font-semibold font-popins mb-5">
         The latest Music news is up to events in our concerts here! <br />{" "}
         Welcome to the music world!

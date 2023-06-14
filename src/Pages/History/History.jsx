@@ -8,7 +8,7 @@ import { Fade } from "react-awesome-reveal";
 const History = () => {
   return (
     <div className=" py-3">
-     <Fade> <h1 className="text-4xl font-bold font-popins text-center">The History</h1></Fade>
+     <Fade> <h1 className="text-4xl font-bold font-popins text-center text-blue-400">The History</h1></Fade>
       <p className="text-xl font-semibold font-popins px-2 text-center mb-4">
         What is MUSIC HUNT and for what purpose? There is no room for such silly{" "}
         <br /> questions! We are here for the music

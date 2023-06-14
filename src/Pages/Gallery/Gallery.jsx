@@ -6,13 +6,22 @@ import gal4 from "../../assets/gal4.jpg";
 import gal5 from "../../assets/gal5.jpg";
 import gal6 from "../../assets/gal6.jpg";
 import { Fade } from "react-awesome-reveal";
+import AOS from "aos"
+import 'aos/dist/aos.css'
+import { useEffect } from "react";
 
 const Gallery = () => {
+
+  useEffect(()=>{
+    
+    AOS.init();
+    },[])
+
   return (
     <div>
       <div className="text-center">
 
-        <Fade> <h1 className="text-4xl uppercase font-bold font-popins mt-5">
+        <Fade> <h1 className="text-4xl uppercase font-bold font-popins mt-5 text-blue-400">
           Our Instrument
         </h1></Fade>
  
@@ -22,7 +31,7 @@ const Gallery = () => {
         </h3>
       </div>
 
-      <div className="grid lg:grid-cols-3 md:grid-cols-1 gap-5 px-2 py-4">
+      <div className="grid lg:grid-cols-3 md:grid-cols-1 gap-5 px-2 py-4" data-aos="fade-up">
         <div className="card w-full bg-base-100 shadow-xl">
           <figure className="px-10 pt-10">
             <img src={gal1} alt="Shoes" className="rounded-xl" />
@@ -34,7 +43,7 @@ const Gallery = () => {
           </div>
         </div>
 
-        <div className="card w-full bg-base-100 shadow-xl">
+        <div className="card w-full bg-base-100 shadow-xl" data-aos="fade-right">
           <figure className="px-10 pt-10">
             <img src={gal2} alt="Shoes" className="rounded-xl" />
           </figure>
@@ -45,7 +54,7 @@ const Gallery = () => {
           </div>
         </div>
 
-        <div className="card w-full bg-base-100 shadow-xl">
+        <div className="card w-full bg-base-100 shadow-xl" data-aos="fade-left">
           <figure className="px-10 pt-10">
             <img src={gal3} alt="Shoes" className="rounded-xl" />
           </figure>
@@ -56,7 +65,7 @@ const Gallery = () => {
           </div>
         </div>
 
-        <div className="card w-full bg-base-100 shadow-xl">
+        <div className="card w-full bg-base-100 shadow-xl" data-aos="flip-left">
           <figure className="px-10 pt-10">
             <img src={gal4} alt="Shoes" className="rounded-xl" />
           </figure>
@@ -67,7 +76,7 @@ const Gallery = () => {
           </div>
         </div>
 
-        <div className="card w-full bg-base-100 shadow-xl">
+        <div className="card w-full bg-base-100 shadow-xl" data-aos="flip-right">
           <figure className="px-10 pt-10">
             <img src={gal5} alt="Shoes" className="rounded-xl" />
           </figure>
@@ -78,7 +87,7 @@ const Gallery = () => {
           </div>
         </div>
 
-        <div className="card w-full bg-base-100 shadow-xl">
+        <div className="card w-full bg-base-100 shadow-xl" data-aos="flip-up">
           <figure className="px-10 pt-10">
             <img src={gal6} alt="Shoes" className="rounded-xl" />
           </figure>
