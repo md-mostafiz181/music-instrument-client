@@ -16,7 +16,7 @@ const ManageClasses = () => {
 
     const handleApprovedClass = (id) => {
         console.log(id);
-        fetch(`http://localhost:5000/classes/${id}`, {
+        fetch(`https://music-learning-server.vercel.app/classes/${id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())

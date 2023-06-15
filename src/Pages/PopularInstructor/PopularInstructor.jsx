@@ -9,7 +9,7 @@ const PopularInstructor = () => {
   const [instructor, setInstructor] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/instructors")
+    fetch("https://music-learning-server.vercel.app/instructors")
       .then((res) => res.json())
       .then((data) => setInstructor(data));
   }, []);

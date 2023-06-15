@@ -9,7 +9,7 @@ const MySelectedClass = () => {
 //   const [classes, setClasses] = useState([]);
 
 //   useEffect(() => {
-//     fetch(`http://localhost:5000/selectedClass?email=${user?.email}`)
+//     fetch(`https://music-learning-server.vercel.app/selectedClass?email=${user?.email}`)
 //       .then((res) => res.json())
 //       .then((data) => setClasses(data));
 //   }, []);

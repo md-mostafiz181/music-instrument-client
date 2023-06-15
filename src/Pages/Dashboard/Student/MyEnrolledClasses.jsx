@@ -6,7 +6,7 @@ const MyEnrolledClasses = () => {
   const [enroll, setEnroll] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/enrollClass")
+    fetch("https://music-learning-server.vercel.app/enrollClass")
       .then((res) => res.json())
       .then((data) => setEnroll(data));
   }, []);
