@@ -6,22 +6,22 @@ import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
-import { GoogleAuthProvider, getAuth } from "firebase/auth";
+import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 
 const SignUp = () => {
+
+  const {signIn}=useContext(AuthContext)
 
   const auth=getAuth();
   const googleProvider= new GoogleAuthProvider();
 
-  const handleGoogleSingUn=()=>{
-    googleSignIn()
+  const handleGoogleSignIn=()=>{
+    signInWithPopup(auth,googleProvider)
+    .then(result=>{})
     
-    .then(result =>{
-      const loggedUser=result.user;
-      console.log(loggedUser)
+    .catch(error=>{
+      console.log("error",error.message)
     })
-    
-    
   }
   const {
     register,
@@ -209,7 +209,7 @@ const SignUp = () => {
               <div className="divider">OR</div>
 
               <div className="form-control">
-                <button className="btn btn-primary text-white font-popins ">
+                <button onClick={handleGoogleSignIn} className="btn btn-primary text-white font-popins ">
                   {" "}
                   <FaGoogle></FaGoogle> Google{" "}
                 </button>
