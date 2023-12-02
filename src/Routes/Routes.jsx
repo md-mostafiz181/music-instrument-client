@@ -23,6 +23,7 @@ import History from "../Pages/History/History";
 import Payment from "../Pages/Payment/Payment";
 import PopularClass from "../Pages/PopularClass/PopularClass";
 import PopularInstructor from "../Pages/PopularInstructor/PopularInstructor";
+import Container from "../components/Container/Container";
 
 
 
@@ -71,8 +72,8 @@ export const router = createBrowserRouter([
           element:<PopularClass></PopularClass>,
         },
         {
-          path:"popularInstructor",
-          element:<PopularInstructor></PopularInstructor>
+          path:"/popularInstructor",
+          element: <PopularInstructor></PopularInstructor>
         }
       ]
       

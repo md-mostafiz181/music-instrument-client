@@ -11,9 +11,6 @@ const Dashboard = () => {
   const [isAdmin]=UseAdmin();
   const [isInstructor]=UseInstructor();
 
-  // const isAdmin=false;
-  // const isInstructor=true;
-  // console.log(isAdmin,isInstructor)
   return (
     <div>
       <Helmet>

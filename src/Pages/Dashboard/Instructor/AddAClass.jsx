@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import UseAxiosSecure from '../../../Hooks/UseAxiosSecure';
 import { AuthContext } from '../../../Providers/AuthProvider';
 import Swal from 'sweetalert2';
+import Container from '../../../components/Container/Container';
 
 const img_hosting_token = import.meta.env.VITE_IMG_BB_KEY;
 
@@ -50,7 +51,9 @@ const AddAClass = () => {
             })
     }
     return (
-        <div className="w-full px-10">
+        <div>
+            <Container>
+            <div className="w-full px-10">
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
                     <label className="label">
@@ -107,6 +110,8 @@ const AddAClass = () => {
                 </div>
                 <input className="btn btn-primary mt-5" type="submit" value="Add Class" />
             </form>
+        </div>
+            </Container>
         </div>
     );
 };

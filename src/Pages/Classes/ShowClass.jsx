@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProvider";
+import Container from "../../components/Container/Container";
 
 const ShowClass = ({ approvedCls }) => {
 
@@ -56,7 +57,9 @@ const ShowClass = ({ approvedCls }) => {
     }
 };
   return (
-    <div className="card w-full bg-base-100 shadow-xl">
+      <div>
+        <Container>
+        <div className="card w-full bg-base-100 shadow-xl">
       <figure>
         <img src={classImage} alt="" />
 
@@ -70,6 +73,8 @@ const ShowClass = ({ approvedCls }) => {
         <button onClick={()=>handleSelectClass(approvedCls)} className="btn btn-primary text-white">Selected</button>
       </div>
     </div>
+        </Container>
+      </div>
   );
 };
 

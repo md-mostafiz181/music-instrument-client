@@ -1,0 +1,13 @@
+#footer-part{
+    background-color: #7071E8;
+    padding: 100px 0;
+}
+
+/* .footer-title{
+    z-index: 999;
+    color: white;
+} */
+
+#footer-part a{
+    color: white;
+}
