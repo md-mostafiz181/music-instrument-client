@@ -6,7 +6,7 @@
  email: sakin1@gmail.com
  pass:MostafizT12@#
  =================================================
- instructor email and password
+ instructor email and password :
  email:micale@gmail.com
  password:MostafizT12@#
  ================================================
